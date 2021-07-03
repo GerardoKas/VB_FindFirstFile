@@ -74,6 +74,8 @@ If (DirName <> ".") And (DirName <> "..") Then
 If FILE_ATTRIBUTE_DIRECTORY And GetFileAttributes(path & DirName) Then
 dirNames(nDir) = DirName
 'DirCount = DirCount + 1
+Form1.lblDirectorio = DirName
+DoEvents
 nDir = nDir + 1
 ReDim Preserve dirNames(nDir)
 End If
@@ -99,7 +101,12 @@ Files(0, FileCount) = path
 Files(1, FileCount) = FileName
 
 FileCount = FileCount + 1
-'From1.List1.AddItem FileName 'path & FileName   'Directamente añada el archivo a la lista
+''''
+Form1.lblCantidad = FileCount
+Form1.lblArchivo = FileName
+Form1.List1.AddItem FileName ''path & FileName   'Directamente añada el archivo a la lista
+DoEvents
+''''
 End If
 Cont = FindNextFile(hSearch, WFD) ' Get next file
 Wend

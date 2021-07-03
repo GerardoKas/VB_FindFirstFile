@@ -1,10 +1,12 @@
 Type=Exe
-Module=VBWorkshop; ..\Escritorio\VBWorkshop.bas
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
 Form=frm_VBWorkshop-findfirstfile-original.frm
-Startup="Form1"
+Module=VBWorkshop; VBWorkshop-findfirstfile-original.bas
+Form=frm_VBWorkshop-findfirstfile-listivew..frm
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0; mscomctl.ocx
+Startup="Form2"
 HelpFile=""
-ExeName32="prVBWorkshop-findfirstfile-original.exe"
+ExeName32="prVBWorkshop-findfirstfile-original_3.exe"
 Command32=""
 Name="Proyecto1"
 HelpContextID="0"

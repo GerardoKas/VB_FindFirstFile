@@ -20,7 +20,7 @@ Begin VB.Form Form1
       Height          =   285
       Left            =   3360
       TabIndex        =   5
-      Text            =   "*.txt"
+      Text            =   "*.bmp"
       Top             =   240
       Width           =   1215
    End
@@ -40,16 +40,24 @@ Begin VB.Form Form1
       Top             =   720
       Width           =   1575
    End
-   Begin VB.Label lblCantidad 
-      Caption         =   "Label2"
+   Begin VB.Label Label1 
+      Caption         =   "Label1"
       Height          =   495
-      Left            =   3360
+      Left            =   1800
+      TabIndex        =   7
+      Top             =   720
+      Width           =   1575
+   End
+   Begin VB.Label lblCantidad 
+      Caption         =   "0"
+      Height          =   495
+      Left            =   3240
       TabIndex        =   4
-      Top             =   2520
+      Top             =   2280
       Width           =   1215
    End
    Begin VB.Label lblArchivo 
-      Caption         =   "Label2"
+      Caption         =   "Archivo"
       Height          =   615
       Left            =   120
       TabIndex        =   3
@@ -57,7 +65,7 @@ Begin VB.Form Form1
       Width           =   3015
    End
    Begin VB.Label lblDirectorio 
-      Caption         =   "Label1"
+      Caption         =   "Directorio"
       Height          =   495
       Left            =   120
       TabIndex        =   0
@@ -77,8 +85,18 @@ Private Sub Command1_Click()
 Dim textoBusqueda As String
 ruta = Text1
 textoBusqueda = Text2
-VBWorkshop.FindFilesAPI ruta, textoBusqueda, 0, arks()
-MsgBox UBound(arks, 1)
+List1.Clear
+Label1 = VBWorkshop.FindFilesAPI(ruta, textoBusqueda, 0, arks())
+MsgBox "Hallados " & (UBound(arks, 2) + 1) & " Archivos"
+ReDim arks(1, 0)
+
 
 End Sub
 
+Private Sub Form_Unload(Cancel As Integer)
+Unload Me
+Unload Form2
+End
+
+
+End Sub
